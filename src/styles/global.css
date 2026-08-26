@@ -596,8 +596,15 @@ strong {
 
 .contact__image {
   display: grid;
+  grid-column: 1;
+  grid-row: 1;
   gap: 16px;
   margin-top: 13px;
+}
+
+.contact__copy {
+  grid-column: 2;
+  grid-row: 1;
 }
 
 .contact__copy h1 {
@@ -1009,10 +1016,14 @@ strong {
   }
 
   .contact__image {
+    grid-column: 1;
+    grid-row: auto;
     margin-top: 0;
   }
 
   .contact__copy {
+    grid-column: 1;
+    grid-row: auto;
     width: min(100%, 520px);
     margin-inline: auto;
   }
