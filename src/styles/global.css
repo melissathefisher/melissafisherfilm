@@ -489,6 +489,7 @@ strong {
   grid-template-columns: minmax(0, 544.6px) minmax(0, 445.57px);
   gap: 49.51px;
   align-items: start;
+  justify-content: center;
   padding: 115.3px 3.91% 76px;
 }
 
