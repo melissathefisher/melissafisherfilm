@@ -533,7 +533,7 @@ strong {
 
 .press-card {
   display: grid;
-  grid-template-columns: minmax(145px, 185px) minmax(0, 1fr);
+  grid-template-columns: minmax(110px, 140px) minmax(0, 1fr);
   grid-template-rows: auto 1fr auto;
   column-gap: 22px;
   align-items: start;
@@ -545,7 +545,7 @@ strong {
   grid-column: 1;
   grid-row: 1 / 4;
   width: 100%;
-  height: 150px;
+  height: 112px;
   object-fit: contain;
   object-position: center top;
 }
@@ -805,7 +805,7 @@ strong {
   }
 
   .press-card {
-    grid-template-columns: minmax(200px, 260px) minmax(0, 1fr);
+    grid-template-columns: minmax(140px, 180px) minmax(0, 1fr);
   }
 }
 
@@ -983,9 +983,9 @@ strong {
   .press-card img {
     grid-column: 1;
     grid-row: auto;
-    width: min(100%, 520px);
+    width: min(72%, 320px);
     height: auto;
-    max-height: 360px;
+    max-height: 240px;
     margin-inline: auto;
   }
 
