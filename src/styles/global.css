@@ -86,7 +86,7 @@ html {
   font-size: 16px;
   font-weight: 300;
   line-height: 1.8;
-  scrollbar-gutter: stable;
+  scrollbar-gutter: stable both-edges;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
