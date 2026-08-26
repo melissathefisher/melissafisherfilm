@@ -493,12 +493,25 @@ strong {
 
 /* About */
 .about {
+  padding: 115.3px 3.91% 76px;
+}
+
+.about__copy {
   display: grid;
   grid-template-columns: minmax(0, 544.6px) minmax(0, 445.57px);
-  gap: 49.51px;
-  align-items: start;
+  gap: 0 49.51px;
   justify-content: center;
-  padding: 115.3px 3.91% 76px;
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.about__portrait {
+  grid-column: 1;
+  grid-row: 1 / span 5;
+}
+
+.about__copy p {
+  grid-column: 2;
 }
 
 .about__portrait img {
@@ -507,12 +520,6 @@ strong {
   object-fit: cover;
   object-position: 42.8% 20%;
   border-radius: 0;
-}
-
-.about__copy {
-  padding-top: 0;
-  font-size: 1rem;
-  line-height: 1.8;
 }
 
 /* Press */
@@ -792,7 +799,7 @@ strong {
 }
 
 @media (min-width: 761px) and (max-width: 1120px) {
-  .about {
+  .about__copy {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 36px;
   }
@@ -953,9 +960,19 @@ strong {
   }
 
   .about {
-    grid-template-columns: 1fr;
-    gap: 32px;
     padding: 126px 0 50px;
+  }
+
+  .about__copy {
+    display: block;
+    padding: 0 1vw;
+  }
+
+  .about__portrait {
+    float: left;
+    width: 42%;
+    max-width: 180px;
+    margin: 0 18px 8px 0;
   }
 
   .about__portrait img {
@@ -963,8 +980,10 @@ strong {
     border-radius: 16px;
   }
 
-  .about__copy {
-    padding: 0 1vw;
+  .about__copy::after {
+    display: block;
+    clear: both;
+    content: '';
   }
 
   .press-grid {
