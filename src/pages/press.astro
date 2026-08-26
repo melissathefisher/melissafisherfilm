@@ -1,0 +1,82 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const press = [
+  {
+    title: 'MOVIE MAKER MAGAZINE',
+    image: '/images/press/moviemaker.webp',
+    quote: '“The bittersweet short film looks at the increasingly uncommon prison policy of allowing extended family visitations, in which inmates can spend time with their loved ones in special apartments built on the prison grounds. The actors beautifully capture the tentative rituals of people trying to settle into the simple joys of normal domestic life, for a few precious hours, before they’re cast back into the misery of separation.”',
+    href: 'https://www.moviemaker.com/inside-these-walls-melissa-fisher/',
+    label: 'Read The Article',
+  },
+  {
+    title: 'INDIE WIRE',
+    image: '/images/press/indiewire.webp',
+    quote: 'The American Film Institute (AFI) has officially announced the eight filmmakers for the upcoming AFI DWW+ Class of 2026, where each will go through the production cycle of a short film. IndieWire shares the class exclusively here.',
+    href: 'https://www.indiewire.com/news/general-news/afi-dww-classof-2026-1235095133/',
+    label: 'Read The Article',
+  },
+  {
+    title: 'BOND ON CINEMA',
+    image: '/images/press/bond-on-cinema.webp',
+    quote: '“This film and the storyline are very emotional. The cinematography is beautiful, the flashbacks properly placed giving us the backstory. If you are a lover of film, you will want to replay the ending a few times, because it is not only something to see, it is an experience to feel. And you can feel the incredible power of a mother’s love in that scene. And you can feel the unconditional love and acceptance that Cristina receives from her mother.”',
+    href: 'https://www.youtube.com/watch?v=oy9V7c48AHc&t=866s',
+    label: 'Watch The Interview',
+  },
+  {
+    title: 'FILM THREAT',
+    image: '/images/press/film-threat.webp',
+    quote: '“Melissa Fisher’s short drama Buscando Alma seems deceptively straightforward. It takes skill to say a lot while barely parting lips, but that’s exactly what the director achieves here. The 15-minute snapshot of a young person reconnecting with their mother touches upon the immigrant experience, the shame that comes with being transgender, generational differences, and the unbreakable parent-child bond.”',
+    href: 'https://filmthreat.com/reviews/buscando-alma/',
+    label: 'Read The Article',
+  },
+  {
+    title: 'THE CONTENDING',
+    image: '/images/press/the-contending.jpg',
+    quote: '“A winner at Atlanta’s Out On Film festival earlier this year, Melissa Fisher’s Buscando Alma is a film that charts acceptance and the power of love in an entirely new way. If you are close to your mother or any parental figure, how much of a void would you physically feel if you didn’t know when you would see them again? Fisher has created a queer film of specific loss and longing, but its huge heart makes this a universal story.”',
+    href: 'https://thecontending.com/melissa-fisher-carolina-gutierrez-interview/',
+    label: 'Read The Article',
+  },
+  {
+    title: 'OVERLY HONEST REVIEWS',
+    image: '/images/press/overly-honest.png',
+    quote: '“BUSCANDO ALMA stands as an achievement in film, redefining the boundaries of LGBTQIA2S+ storytelling with its heartfelt narrative, stunning visuals, and compelling performances. It’s an essential viewing experience that challenges viewers and invites them into a deep, reflective conversation about identity, heritage, and the bonds that define us. Melissa Fisher has not just made a film; she has sparked a crucial dialogue that resonates profoundly with a soulful call for acceptance and love, ensuring that the echoes of this story linger well beyond the initial viewing.”',
+    href: 'https://mailnewsgroup.com/ohmr/a-transcendent-story-of-hope-and-healing/',
+    label: 'Read The Article',
+  },
+  {
+    title: 'ONE FILM FAN',
+    image: '/images/press/one-film-fan.png',
+    quote: '“So, in total, Buscando Alma stands as both a distinctly haunting but above all uplifting tale of the trials of immigration, maintaining faith, overcoming the past, embracing the present, recalling what we long for, and then returning to what we truly need, with all of it ultimately centered on what is most needed now and forever–all-encompassing love for those we cherish and, by extension, the greater humanity around us. May we take a lesson from this and APPLY IT to see a better world to call home.”',
+    href: 'https://onefilmfan.com/oscar-qualifying-short-film-review-buscando-alma/',
+    label: 'Read The Article',
+  },
+  {
+    title: 'NERDGEIST',
+    image: '/images/press/nerdgeist.png',
+    quote: '“Melissa Fisher has given us this beautiful yet isolating tale that hit me right in the feels. Buscando Alma translates to searching for the soul, and I think that this simple phrase perfectly encapsulates the powerful imagery of this piece of art. A truly emotional story, with gorgeous cinematography and strong performances, it’s no wonder this film qualified for the 2025 OSCARS.”',
+    href: 'https://nerdgeist.com/2024/10/31/buscando-alma-review/',
+    label: 'Read The Article',
+  },
+  {
+    title: 'UK FILM REVIEW',
+    image: '/images/press/uk-film-review.png',
+    quote: '“This is definitely one of the better short films I’ve had the pleasure of watching this year, and it exemplifies a kind of socially conscious – yet cinematically inventive – mode of movie making which we clearly need more of, and should also be seen by many (in a perfect world). It’s a story filled with hope, filmed and constructed with great skill. So, let’s dive deeper into why it works as well as it does.”',
+    href: 'https://www.ukfilmreview.co.uk/reviews/buscando-alma',
+    label: 'Read The Article',
+  },
+];
+---
+
+<Layout title="Press">
+  <section class="press-grid page-wrap" aria-label="Press coverage">
+    {press.map((item) => (
+      <article class="press-card">
+        <img src={item.image} alt={item.title} loading="lazy" />
+        <h2>{item.title}</h2>
+        <p>{item.quote}</p>
+        <a class="press-card__button" href={item.href} target="_blank" rel="noopener noreferrer">{item.label}</a>
+      </article>
+    ))}
+  </section>
+</Layout>

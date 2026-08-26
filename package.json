@@ -1,0 +1,22 @@
+{
+  "name": "melissafisherfilm-com",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "sync:images": "node scripts/download-project-images.mjs",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@fontsource/cormorant-garamond": "^5.2.6",
+    "@fontsource/lato": "^5.2.6",
+    "astro": "^7.2.6"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.4",
+    "typescript": "^5.8.3"
+  }
+}

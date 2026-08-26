@@ -1,0 +1,66 @@
+---
+import SocialLinks from './SocialLinks.astro';
+
+interface Props {
+  theme?: 'light' | 'dark';
+}
+
+const { theme = 'light' } = Astro.props;
+const path = Astro.url.pathname;
+const links = [
+  { href: '/portfolio', label: 'Portfolio' },
+  { href: '/about', label: 'About' },
+  { href: '/press', label: 'Press' },
+  { href: '/contact-1', label: 'Contact' },
+];
+
+const isActive = (href: string) => href === '/portfolio' ? path.startsWith('/portfolio') : path === href;
+---
+
+<header class:list={['site-header', `site-header--${theme}`]}>
+  <a class="brand" href="/" aria-label="Melissa Fisher, director — home">
+    <span>MELISSA FISHER</span><span class="brand__role">director</span>
+  </a>
+
+  <div class="desktop-nav">
+    <nav class="main-nav" aria-label="Primary navigation">
+      {links.map((link) => (
+        <a href={link.href} aria-current={isActive(link.href) ? 'page' : undefined}>{link.label}</a>
+      ))}
+    </nav>
+    <SocialLinks />
+  </div>
+
+  <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+    <span></span><span></span>
+  </button>
+
+  <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <nav aria-label="Mobile navigation">
+      {links.map((link) => (
+        <a href={link.href} aria-current={isActive(link.href) ? 'page' : undefined}>{link.label}</a>
+      ))}
+    </nav>
+    <SocialLinks class="mobile-social" />
+  </div>
+</header>
+
+<script>
+  const header = document.querySelector<HTMLElement>('.site-header');
+  const toggle = document.querySelector<HTMLButtonElement>('.menu-toggle');
+  const menu = document.querySelector<HTMLElement>('.mobile-menu');
+
+  const setOpen = (open: boolean) => {
+    toggle?.setAttribute('aria-expanded', String(open));
+    toggle?.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    menu?.setAttribute('aria-hidden', String(!open));
+    header?.classList.toggle('menu-open', open);
+    document.body.classList.toggle('nav-open', open);
+  };
+
+  toggle?.addEventListener('click', () => setOpen(toggle.getAttribute('aria-expanded') !== 'true'));
+  menu?.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => setOpen(false)));
+  window.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') setOpen(false);
+  });
+</script>

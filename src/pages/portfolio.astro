@@ -1,0 +1,18 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { projects } from '../data/projects';
+---
+
+<Layout title="Portfolio" description="Directing work by Melissa Fisher.">
+  <section class="portfolio-grid page-wrap" aria-label="Portfolio projects">
+    {projects.map((project) => (
+      <a class="portfolio-card" href={`/portfolio/${project.slug}`}>
+        <div class="portfolio-card__image">
+          <img src={project.cover} alt={project.title} width="1500" height="844" />
+          <div class="portfolio-card__overlay"><span>View Project</span></div>
+        </div>
+        <h2>{project.title}</h2>
+      </a>
+    ))}
+  </section>
+</Layout>

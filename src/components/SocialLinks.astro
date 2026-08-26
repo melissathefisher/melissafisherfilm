@@ -1,0 +1,27 @@
+---
+import { site } from '../data/site';
+
+interface Props {
+  class?: string;
+}
+
+const className = Astro.props.class ?? '';
+---
+
+<nav class:list={['social-links', className]} aria-label="Social media">
+  <a href={site.social.vimeo} target="_blank" rel="noopener noreferrer" aria-label="Vimeo">
+    <svg class="social-icon" viewBox="23 23 64 64" aria-hidden="true">
+      <use href="/icons/social-accounts.svg#vimeo-unauth-icon" width="110" height="110"></use>
+    </svg>
+  </a>
+  <a href={site.social.imdb} target="_blank" rel="noopener noreferrer" aria-label="IMDb">
+    <svg class="social-icon" viewBox="23 23 64 64" aria-hidden="true">
+      <use href="/icons/social-accounts.svg#imdb-icon" width="110" height="110"></use>
+    </svg>
+  </a>
+  <a href={site.social.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+    <svg class="social-icon" viewBox="23 23 64 64" aria-hidden="true">
+      <use href="/icons/social-accounts.svg#instagram-unauth-icon" width="110" height="110"></use>
+    </svg>
+  </a>
+</nav>

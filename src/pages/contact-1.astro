@@ -1,0 +1,16 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SocialLinks from '../components/SocialLinks.astro';
+import { site } from '../data/site';
+---
+
+<Layout title="Contact" image="/images/contact.webp">
+  <section class="contact page-wrap">
+    <div class="contact__image"><img src="/images/contact.webp" alt="Melissa Fisher directing on set" /></div>
+    <div class="contact__copy">
+      <h1>Contact</h1>
+      <p><strong>Email</strong><br /><a href={`mailto:${site.email}`}>{site.email}</a></p>
+      <SocialLinks class="contact__social" />
+    </div>
+  </section>
+</Layout>

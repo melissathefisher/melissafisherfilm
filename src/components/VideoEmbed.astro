@@ -1,0 +1,72 @@
+---
+interface Props {
+  id: string;
+  title: string;
+  poster: string;
+  background?: boolean;
+}
+
+const { id, title, poster, background = false } = Astro.props;
+const params = background
+  ? 'api=1&background=1&autoplay=1&muted=1&loop=1&autopause=0&playsinline=1&dnt=1'
+  : 'dnt=1&title=0&byline=0&portrait=0';
+---
+
+<div class:list={['video-shell', { 'video-shell--background': background }]} data-video-shell>
+  {!background && <img class="video-poster" src={poster} alt="" />}
+  <iframe
+    class="video-frame"
+    src={`https://player.vimeo.com/video/${id}?${params}`}
+    title={title}
+    allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+    referrerpolicy="strict-origin-when-cross-origin"
+    loading={background ? 'eager' : 'lazy'}
+    allowfullscreen
+  ></iframe>
+  {background && (
+    <div class="video-preloader" aria-live="polite">
+      <div class="video-preloader__status">
+        <span>Loading</span>
+        <span class="video-preloader__line" aria-hidden="true"><i></i></span>
+      </div>
+    </div>
+  )}
+</div>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-video-shell]').forEach((shell) => {
+    if (shell.dataset.bound === 'true') return;
+    shell.dataset.bound = 'true';
+    const frame = shell.querySelector<HTMLIFrameElement>('iframe');
+    if (!frame) return;
+    let timer = 0;
+    const reveal = () => {
+      window.clearTimeout(timer);
+      shell.classList.add('video-ready');
+    };
+
+    const onMessage = (event: MessageEvent) => {
+      if (event.origin !== 'https://player.vimeo.com' || event.source !== frame.contentWindow) return;
+      let data = event.data;
+      if (typeof data === 'string') {
+        try { data = JSON.parse(data); } catch { return; }
+      }
+      if (data?.event === 'ready') {
+        frame.contentWindow?.postMessage(JSON.stringify({ method: 'addEventListener', value: 'play' }), 'https://player.vimeo.com');
+      }
+      if (data?.event === 'play') {
+        window.removeEventListener('message', onMessage);
+        reveal();
+      }
+    };
+
+    if (shell.classList.contains('video-shell--background')) {
+      window.addEventListener('message', onMessage);
+    }
+
+    frame.addEventListener('load', () => {
+      timer = window.setTimeout(reveal, shell.classList.contains('video-shell--background') ? 2200 : 120);
+    }, { once: true });
+    window.setTimeout(reveal, 9000);
+  });
+</script>
