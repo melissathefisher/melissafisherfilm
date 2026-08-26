@@ -571,8 +571,12 @@ strong {
 .contact__image img {
   width: 100%;
   height: auto;
-  opacity: 0.48;
+  opacity: 1;
   border-radius: 7px;
+}
+
+.contact__image {
+  margin-top: 13px;
 }
 
 .contact__copy h1 {
@@ -949,9 +953,8 @@ strong {
     padding-top: 145px;
   }
 
-  .contact__image img {
-    height: auto;
-    opacity: 0.62;
+  .contact__image {
+    margin-top: 0;
   }
 
   .contact__copy {
