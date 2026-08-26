@@ -1,7 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import SocialLinks from '../components/SocialLinks.astro';
-import { site } from '../data/site';
 ---
 
 <Layout title="Contact" image="/images/contact.webp">
@@ -9,7 +8,21 @@ import { site } from '../data/site';
     <div class="contact__image"><img src="/images/contact.webp" alt="Melissa Fisher directing on set" /></div>
     <div class="contact__copy">
       <h1>Contact</h1>
-      <p><strong>Email</strong><br /><a href={`mailto:${site.email}`}>{site.email}</a></p>
+      <form class="contact__form" action="https://formspree.io/f/mvkpewjb" method="POST">
+        <label for="contact-name">Name</label>
+        <input id="contact-name" name="name" type="text" autocomplete="name" required />
+
+        <label for="contact-email">Email</label>
+        <input id="contact-email" name="email" type="email" autocomplete="email" required />
+
+        <label for="contact-subject">Subject</label>
+        <input id="contact-subject" name="subject" type="text" required />
+
+        <label for="contact-message">Message</label>
+        <textarea id="contact-message" name="message" rows="6" required></textarea>
+
+        <button type="submit">Send</button>
+      </form>
       <SocialLinks class="contact__social" />
     </div>
   </section>
