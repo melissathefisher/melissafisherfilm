@@ -595,6 +595,8 @@ strong {
 }
 
 .contact__image {
+  display: grid;
+  gap: 16px;
   margin-top: 13px;
 }
 
