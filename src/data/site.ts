@@ -4,7 +4,7 @@ export const site = {
   email: 'melissathefisher@gmail.com',
   social: {
     vimeo: 'https://vimeo.com/user5106570',
-    imdb: 'https://www.imdb.com/name/nm2630681/?ref_=fn_al_nm_2',
+    imdb: 'https://www.imdb.com/name/nm2630681',
     instagram: 'https://www.instagram.com/melissathefisher/',
   },
 };
