@@ -1,18 +1,28 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import VideoEmbed from '../components/VideoEmbed.astro';
 import { projects } from '../data/projects';
+
+const [directingReel, ...films] = projects;
 ---
 
 <Layout title="Portfolio" description="Directing work by Melissa Fisher.">
-  <section class="portfolio-grid page-wrap" aria-label="Portfolio projects">
-    {projects.map((project) => (
-      <a class="portfolio-card" href={`/portfolio/${project.slug}`}>
-        <div class="portfolio-card__image">
-          <img src={project.cover} alt={project.title} width="1500" height="844" />
-          <div class="portfolio-card__overlay"><span>View Project</span></div>
-        </div>
-        <h2>{project.title}</h2>
-      </a>
-    ))}
+  <section class="portfolio-page page-wrap" aria-label="Portfolio projects">
+    <div class="portfolio-reel">
+      <VideoEmbed id={directingReel.videoId} title={directingReel.title} poster={directingReel.poster} />
+      <h1>{directingReel.title}</h1>
+    </div>
+
+    <div class="portfolio-grid">
+      {films.map((project) => (
+        <a class="portfolio-card" href={`/portfolio/${project.slug}`}>
+          <div class="portfolio-card__image">
+            <img src={project.cover} alt={project.title} width="1500" height="844" />
+            <div class="portfolio-card__overlay"><span>View Project</span></div>
+          </div>
+          <h2>{project.title}</h2>
+        </a>
+      ))}
+    </div>
   </section>
 </Layout>
