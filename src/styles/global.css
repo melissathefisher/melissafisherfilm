@@ -432,12 +432,6 @@ strong {
   margin: 0 auto 34px;
 }
 
-.portfolio-reel h1 {
-  margin: 8px 0 0;
-  font-size: 2.2rem;
-  text-align: center;
-}
-
 .portfolio-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -943,10 +937,6 @@ strong {
 
   .portfolio-reel {
     margin-bottom: 30px;
-  }
-
-  .portfolio-reel h1 {
-    font-size: 1.7rem;
   }
 
   .portfolio-card h2 {
