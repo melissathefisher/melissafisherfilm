@@ -517,7 +517,7 @@ strong {
 .about__portrait img {
   width: 100%;
   height: auto;
-  border-radius: 0;
+  border-radius: 16px;
 }
 
 /* Press */
@@ -972,7 +972,6 @@ strong {
 
   .about__portrait img {
     height: auto;
-    border-radius: 16px;
   }
 
   .about__copy::after {
