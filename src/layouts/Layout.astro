@@ -8,6 +8,8 @@ interface Props {
   description?: string;
   image?: string;
   home?: boolean;
+  noindex?: boolean;
+  favicon?: string;
 }
 
 const {
@@ -15,11 +17,14 @@ const {
   description = site.description,
   image = '/og.png',
   home = false,
+  noindex = false,
+  favicon = '/favicon.svg',
 } = Astro.props;
 const pageTitle = title ? `${title} — ${site.name}` : site.name;
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const ogImage = new URL(image, Astro.site);
 const isBrandCard = image === '/og.png';
+const isPortrait = image === '/images/melissa-fisher-og.jpg';
 ---
 
 <!doctype html>
@@ -27,7 +32,7 @@ const isBrandCard = image === '/og.png';
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href={favicon} type={favicon === '/favicon.svg' ? 'image/svg+xml' : undefined} />
     <link
       rel="preload"
       href="/fonts/cormorant-garamond-latin-500-normal.woff2"
@@ -44,6 +49,7 @@ const isBrandCard = image === '/og.png';
     />
     <title>{pageTitle}</title>
     <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
     <link rel="canonical" href={canonical} />
     <link rel="preconnect" href="https://player.vimeo.com" />
     <link rel="preconnect" href="https://i.vimeocdn.com" />
@@ -55,6 +61,9 @@ const isBrandCard = image === '/og.png';
     <meta property="og:image" content={ogImage} />
     {isBrandCard && <meta property="og:image:width" content="1200" />}
     {isBrandCard && <meta property="og:image:height" content="630" />}
+    {isPortrait && <meta property="og:image:width" content="1136" />}
+    {isPortrait && <meta property="og:image:height" content="2019" />}
+    {isPortrait && <meta property="og:image:type" content="image/jpeg" />}
     <meta property="og:image:alt" content="Melissa Fisher Director" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={pageTitle} />
