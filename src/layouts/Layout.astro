@@ -15,10 +15,10 @@ interface Props {
 const {
   title,
   description = site.description,
-  image = '/og.png',
+  image = '/images/melissa-fisher-og.jpg',
   home = false,
   noindex = false,
-  favicon = '/favicon.svg',
+  favicon = 'data:,',
 } = Astro.props;
 const pageTitle = title ? `${title} — ${site.name}` : site.name;
 const canonical = new URL(Astro.url.pathname, Astro.site);
