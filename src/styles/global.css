@@ -91,6 +91,10 @@ html {
   text-rendering: optimizeLegibility;
 }
 
+html.home-document {
+  background: #000;
+}
+
 body {
   margin: 0;
   min-width: 320px;
