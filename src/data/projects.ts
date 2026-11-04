@@ -29,7 +29,7 @@ export const projects: Project[] = [
   {
     slug: 'insidethesewalls',
     title: 'Inside These Walls',
-    cover: '/images/portfolio/inside-these-walls.webp',
+    cover: '/images/portfolio/inside-these-walls-laurels.jpg',
     videoId: '1165853049',
     poster: '/images/posters/inside-these-walls.jpg',
     eyebrow: 'AFI DWW+ Short Film',
